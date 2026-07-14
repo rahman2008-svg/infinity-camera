@@ -1,0 +1,30 @@
+workflows:
+  android-build:
+    name: Android Build
+    max_build_duration: 60
+    instance_type: linux
+
+    environment:
+      java: 17
+
+    cache:
+      cache_paths:
+        - ~/.gradle/caches
+        - ~/.gradle/wrapper
+
+    scripts:
+      - name: Set Android SDK location
+        script: |
+          echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/local.properties"
+
+      - name: Make Gradle executable
+        script: |
+          chmod +x ./gradlew
+
+      - name: Build Debug APK
+        script: |
+          ./gradlew assembleDebug
+
+    artifacts:
+      - app/build/outputs/**/*.apk
+      - app/build/reports/**
