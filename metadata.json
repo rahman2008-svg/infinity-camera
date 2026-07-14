@@ -1,0 +1,6 @@
+{
+  "name": "Infinity Camera",
+  "description": "A feature-rich, high-performance camera application with custom modes, professional controls, a dynamic photo editor, local media gallery, and private secure vault.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
