@@ -11,11 +11,6 @@ workflows:
         - ~/.gradle/caches
         - ~/.gradle/wrapper
 
-    triggering:
-      events:
-        - push
-        - pull_request
-
     scripts:
       - name: Set Android SDK location
         script: |
@@ -36,10 +31,3 @@ workflows:
     artifacts:
       - app/build/outputs/**/*.apk
       - app/build/reports/**
-      - build/**/reports/**
-
-    publishing:
-      email:
-        notify:
-          success: true
-          failure: true
